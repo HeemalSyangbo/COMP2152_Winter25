@@ -19,5 +19,18 @@ def get_valid_int_input(prompt):
 
 try:
     elements_selected = get_valid_int_input("Enter the index of the element you like")
+    # Roll dice
+    elementRoll = random.randint(1, 6)
+    totalNum = elements_selected + elementRoll
+
+    # Print  the result base on the totalNum
+    if elementRoll <= 2:
+        print("You rolled a weak element, friend")
+    elif elementRoll <= 4:
+        print("You rolled a medium element, friend")
+    else:
+        print("You rolled a strong element, friend")
+
+
 except Exception as e:
     print("")
