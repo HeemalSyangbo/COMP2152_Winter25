@@ -1,37 +1,31 @@
 import random
 
-elements = ["Hydrogen", "Helium", "Lithium", "Beryllium", "Boron", "Carbon"]
-print("Elements: ", elements)
-#  git add . && git commit -m "add elements array" && git push
 
-# def funct_name():
-#     return True
-# def say_greeting(name, message="hi"):
-#     print(f" {message}, {name}")
-# say_greeting("Heemal")
-# say_greeting("Heemal", "Hello")
+def roll_weapon():
+    weapons = ["Fist", "Knife", "Club", "Gun", "Bomb", "Nuclear bomb"]
 
-def get_valid_int_input(prompt):
-    while True:
-        try:
-            return int(input(prompt))
-        except ValueError:
-            print("Error: Please enter a valid integer!")
-            continue
-try:
-    elements_selected = get_valid_int_input("Enter the index of the element you like: ")
-    # Roll dice
-    elementRoll = random.randint(1, 6)
-    totalNum = elements_selected + elementRoll
+    try:
+        weaponRoll = random.randint(1, 6)  # Roll a dice (1-6)
+        hero_combat_strength = weaponRoll  # Add roll to hero's combat strength
 
-    # Print the result based on the totalNum
-    if elementRoll <= 2:
-        print("You rolled a weak element, friend.")
-    elif elementRoll <= 4:
-        print("Yor element is moderate.")
-    else:
-        print("Nice element.")
-except IndexError:
-    print("Error: Invalid element index!")
-except Exception as e:
-    print(f"An unexpected error occurred: {e}")
+        weapon = weapons[weaponRoll - 1]  # Get the weapon from the array
+        print(f"You rolled a {weaponRoll}. Your weapon is: {weapon}")
+
+        # Determine weapon strength message
+        if weaponRoll <= 2:
+            print("You rolled a weak weapon, friend")
+        elif weaponRoll <= 4:
+            print("Your weapon is meh")
+        else:
+            print("Nice weapon, friend!")
+
+        # Check if the weapon is not a Fist
+        if weapon != "Fist":
+            print("Thank goodness you didn't roll the Fist...")
+
+    except ValueError:
+        print("Error: Invalid input. Please enter an integer.")
+
+
+# Run the function
+roll_weapon()
